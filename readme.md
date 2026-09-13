@@ -6,3 +6,11 @@
 3. define what is part of the workspace
 4. pnpm init in all the folders
 5. define a dev script for both the services in root package.json -> "dev": "pnpm --parallel -filter './apps/*' dev"
+
+
+- Variables
+
+- Data types + type coersion
+
+- operators
+
