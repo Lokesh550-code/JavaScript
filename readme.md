@@ -14,3 +14,10 @@
 
 - operators
 
+- Backend
+
+1. npm init
+2. Create .gitignore
+3. create index.js
+4. install express
+5. make a server listen on a port
