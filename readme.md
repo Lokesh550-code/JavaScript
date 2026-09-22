@@ -21,3 +21,4 @@
 3. create index.js
 4. install express
 5. make a server listen on a port
+6. Practice with http methods and params

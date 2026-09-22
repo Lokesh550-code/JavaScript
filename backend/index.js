@@ -17,15 +17,31 @@ app.post("/notes", (req, res) => {
 });
 
 app.get("/notes", (req, res) => {
-  res.status(200).json({ message: "The request was successful", notes : notes });
+  res.status(200).json({ message: "The request was successful", notes: notes });
 });
 
 app.delete("/notes/:q", (req, res) => {
   const index = req.params.q;
-  console.log(index);
   notes.splice(index, 1);
   res.status(200).json({ message: "Note deleted sucessfully" });
-  console.log(notes);
+});
+
+app.patch("/notes/:q", (req, res) => {
+  const index = req.params.q;
+
+  if (req.body.message !== undefined && req.body.title !== undefined) {
+    notes[index].message = req.body.message;
+    notes[index].title = req.body.title;
+    res.status(200).json({ message: "Note updated sucessfully" });
+  }
+  if (req.body.title !== undefined) {
+    notes[index].title = req.body.title;
+    res.status(200).json({ message: "Note updated sucessfully" });
+  }
+  if (req.body.message !== undefined) {
+    notes[index].message = req.body.message;
+    res.status(200).json({ message: "Note updated sucessfully" });
+  }
 });
 
 app.listen(PORT, () => {
