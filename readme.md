@@ -22,3 +22,5 @@
 4. install express
 5. make a server listen on a port
 6. Practice with http methods and params
+
+- create a crud API for a notes application
