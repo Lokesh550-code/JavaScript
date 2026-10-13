@@ -6,13 +6,14 @@ import {
   getUser,
   getUserById,
 } from "../controllers/user.controller.js";
+import asyncHandler from "../utils/asyncHandler.js";
 
 const userRouter = express.Router();
 
 userRouter.use(express.json());
 userRouter.use(authenticate);
 
-userRouter.get("/", getUser);
+userRouter.get("/", asyncHandler(getUser));
 
 userRouter.get("/:id", getUserById);
 

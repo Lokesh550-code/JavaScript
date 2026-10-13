@@ -5,20 +5,14 @@ export const getUser = (req, res) => {
 };
 
 export const getUserById = async (req, res, next) => {
-  try {
-    const user = await user.findByOne();
-
-    if (!user) {
-      throw new ApiError(400, "User not found");
-    }
-
-    res.status(200).json({ success: true, data: user });
-  } catch (err) {
-    next(err);
-  }
   const { id } = req.params;
+  const user = await user.findById();
 
-  res.status(200).json({ message: "Get user", id });
+  if (!user) {
+    throw new ApiError(404, "User not found");
+  }
+
+  res.status(200).json({ success: true, data: user });
 };
 
 export const createUser = (req, res) => {
