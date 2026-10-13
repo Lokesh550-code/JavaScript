@@ -4,7 +4,7 @@ import errorHandler from "./middlewares/errorHandler.middleware.js";
 
 const app = express();
 
-app.use(errorHandler);
 app.use("/api/users", userRouter);
+app.use(errorHandler);
 
 export default app;

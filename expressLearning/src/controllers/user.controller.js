@@ -4,9 +4,9 @@ export const getUser = (req, res) => {
   res.status(200).json({ message: "Get user" });
 };
 
-export const getUserById = async (req, res, next) => {
+export const getUserById = async (req, res) => {
   const { id } = req.params;
-  const user = await user.findById();
+  const user = await user.findById(id);
 
   if (!user) {
     throw new ApiError(404, "User not found");

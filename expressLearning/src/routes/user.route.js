@@ -15,10 +15,10 @@ userRouter.use(authenticate);
 
 userRouter.get("/", asyncHandler(getUser));
 
-userRouter.get("/:id", getUserById);
+userRouter.get("/:id", asyncHandler(getUserById));
 
-userRouter.post("/", createUser);
+userRouter.post("/", asyncHandler(createUser));
 
-userRouter.delete("/:id", deleteUser);
+userRouter.delete("/:id", asyncHandler(deleteUser));
 
 export default userRouter;
